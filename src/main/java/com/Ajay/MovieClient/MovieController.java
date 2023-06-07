@@ -12,8 +12,9 @@ public class MovieController {
     MovieService service;
 
     @GetMapping("/get-movie")
-    public Movie getMovie(@RequestParam int id){
-       return service.getMovieFromClient(id);
+    public Movie getMovie(@RequestParam Integer id){
+
+        return service.getMovieFromClient(id);
     }
 
 }
