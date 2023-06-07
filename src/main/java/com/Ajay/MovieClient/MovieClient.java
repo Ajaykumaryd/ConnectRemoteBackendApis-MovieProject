@@ -19,7 +19,9 @@ public class MovieClient {
 
     MovieRepository repository=new MovieRepository();
     RestTemplate template=new RestTemplate();
-//    public Movie getMovie(int id) {
+
+
+//      public Movie getMovie(int id) {
 //    String url2=String.format(url,id); //replace percentage sign with Id
 //
 ////  String url2="https://api.themoviedb.org/3/movie/"+id+"?api_key=cd46fe13f1442cfa663d94a7d3ed7e5e"
@@ -38,8 +40,8 @@ public class MovieClient {
 
     public Movie getMovie(Integer id){
         String url2=UriComponentsBuilder
-                .fromHttpUrl(baseUrl)
-                .path(String.format(getMoviepath,id))
+                .fromHttpUrl(baseUrl)        //https://api.themoviedb.org/3
+                .path(String.format(getMoviepath,id)) ///movie/%s
                 .queryParam("api_key",key)
                 .build()
                 .toUriString();
@@ -50,6 +52,8 @@ public class MovieClient {
 
     private static String key="cd46fe13f1442cfa663d94a7d3ed7e5e";
     private static String postMovieUrl="https://api.themoviedb.org/3/movie?=api_key=%s";
+
+
     public String addMovie(Movie movie){
     String postUrl=String.format(postMovieUrl,key);
     HttpEntity entity=new HttpEntity(movie);
@@ -61,13 +65,10 @@ public class MovieClient {
       }
     }
 
-    //https://api.themoviedb.org/3/movie/%s?api_key=cd46fe13f1442cfa663d94a7d3ed7e5e
 
 
-//      public String updateMovie(Integer id,String updatedTitle){
-//          UriComponentsBuilder.fromHttpUrl(baseUrl).
-//                  path(updateMoviepath).q
-//      }
+
+
 
 
 
